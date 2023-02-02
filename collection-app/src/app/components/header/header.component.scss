@@ -1,0 +1,21 @@
+@import "src/styles";
+
+h1 {
+  margin: 0;
+}
+.wrap-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  color: $white;
+  background-color: $black;
+  margin:  0 50px;
+  padding: 10px;
+}
+
+.wrap-navigate {
+  display: flex;
+  flex-direction: row;
+}
