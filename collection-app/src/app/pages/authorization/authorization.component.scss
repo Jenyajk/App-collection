@@ -1,1 +1,65 @@
 @import "src/app/core/theme";
+
+.auth-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $last;
+  height: 100%;
+
+}
+
+.auth-form-wrap {
+  height: 400px;
+  width: 400px;
+  background: $white;
+  padding: 5px;
+
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wrap-question {
+  display: flex;
+  flex-direction: row;
+}
+
+.question {
+  text-align: center;
+}
+
+.alert-danger {
+  color: red;
+}
+
+.button-close {
+  display: flex;
+  border-radius: 50%;
+  padding: 0;
+  border-style: none;
+}
+
+.button-close:hover {
+  cursor: pointer;
+  color: $white;
+  background-color: $black;
+}
+
+.auth-wrapper {
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+}
+
+.a-close {
+  align-self: flex-end;
+}
+
+.button{
+  height: 40px;
+  width: 80px;
+}

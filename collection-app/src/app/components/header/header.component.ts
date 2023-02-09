@@ -9,9 +9,9 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit{
-  login: any;
-  logout:any;
-  lang: string = 'EN'
+  login: boolean = true;
+  logout: any;
+  lang: string = 'en'
 
   constructor(
     private translateService: TranslateService
@@ -19,28 +19,43 @@ export class HeaderComponent implements OnInit{
 
 
  public switchLanguageEN() {
-    this.lang = 'EN'
-let l = localStorage.getItem('lang')
+    this.lang = 'en'
    this.changeLanguage()
-  }
+   localStorage.setItem("lang", this.lang)
 
+  }
 
   public switchLanguageRU() {
-    this.lang = 'RU'
+    this.lang = 'ru'
     this.changeLanguage()
+    localStorage.setItem("lang", this.lang)
   }
   public changeLanguage() {
-    if (this.lang === 'EN') {
+    if (this.lang === 'en') {
       this.translateService.use("en")
-      this.lang = "EN"
+      this.lang = "en"
     } else {
       this.translateService.use("ru");
-      this.lang = "РУ"
+      this.lang = "ru"
     }
   }
 
+
+
   ngOnInit() {
-   localStorage.setItem('lang', this.lang)
+    localStorage.setItem("lang", this.lang)
+    // let current_lang = localStorage.getItem('lang')
+    // if (!current_lang) {
+    //   localStorage.setItem("lang", this.lang)
+    // } else {
+    //   this.lang = current_lang
+    //  console.log('ddd')
+    // }
+    let current_login = localStorage.getItem('login')
+    if (!current_login) {
+      this.login = true
+    } else this.login = false
+
   }
 
 }

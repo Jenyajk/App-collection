@@ -1,1 +1,69 @@
-<p>authorization works!</p>
+<div class="auth-wrap">
+  <div class="auth-wrapper">
+    <a  class="a-close" routerLink="/">
+      <button class="button-close"><mat-icon aria-hidden="false"  fontIcon="close"></mat-icon></button>
+    </a>
+    <div class="auth-form-wrap" *ngIf="registration else signin">
+      <div>
+        <h1 >{{"AUTH.REG" | translate}}</h1>
+        <div class="wrap-question">
+          <p class="question">{{"AUTH.IF" | translate}}
+            <a (click)="signIn()">{{"AUTH.SIGN" | translate}}</a>
+          </p>
+
+        </div>
+      </div>
+      <form [formGroup]="authorizationForm" class="auth-form">
+        <label>{{"AUTH.LOGIN" | translate}}</label>
+        <input name="name" formControlName="userName">
+        <div class="alert alert-danger"
+             *ngIf="authorizationForm.controls['userName'].invalid && authorizationForm.controls['userName'].touched">
+          Не указано имя
+        </div>
+        <label>e-mail</label>
+        <input name="email" formControlName="userEmail">
+        <div class="alert alert-danger"
+             *ngIf="authorizationForm.controls['userEmail'].invalid && authorizationForm.controls['userEmail'].touched">
+          Некорректный email
+        </div>
+        <label>{{"AUTH.PASS" | translate}}</label>
+        <input name="password" formControlName="password">
+        <div class="alert alert-danger"
+             *ngIf="authorizationForm.controls['password'].invalid && authorizationForm.controls['password'].touched">
+          Некорректный casc
+        </div>
+      </form>
+      <button [disabled]="authorizationForm.invalid"
+              class="button button-submit">{{"AUTH.SUBMIT" | translate}}</button>
+    </div>
+
+    <ng-template #signin>
+      <div class="auth-form-wrap">
+        <div>
+          <h1 >{{"AUTH.ENTER" | translate}}</h1>
+
+        </div>
+        <form [formGroup]="authorizationForm" class="auth-form">
+          <label>{{"AUTH.LOGIN" | translate}}</label>
+          <input name="name" formControlName="userName">
+          <div class="alert alert-danger"
+               *ngIf="authorizationForm.controls['userName'].invalid && authorizationForm.controls['userName'].touched">
+            Не указано имя
+          </div>
+          <label>{{"AUTH.PASS" | translate}}</label>
+          <input name="password" formControlName="password">
+          <div class="alert alert-danger"
+               *ngIf="authorizationForm.controls['password'].invalid && authorizationForm.controls['password'].touched">
+            Некорректный casc
+          </div>
+        </form>
+        <button [disabled]="authorizationForm.invalid"
+                class="button button-submit">{{"AUTH.SUBMIT" | translate}}</button>
+        <button class="button button-reg">
+          <a (click)="signIn()">{{"AUTH.REG" | translate}}</a>
+        </button>
+      </div>
+    </ng-template>
+  </div>
+
+</div>

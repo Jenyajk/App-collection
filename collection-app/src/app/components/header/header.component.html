@@ -4,14 +4,16 @@
   <app-search></app-search>
 <div class="wrap-navigate">
   <div>login
-    <button *ngIf="login else logout"><mat-icon aria-hidden="false"   fontIcon="login"></mat-icon></button>
+    <a routerLink="auth">
+      <button *ngIf="login else logout"><mat-icon aria-hidden="false"   fontIcon="login"></mat-icon>
+      </button>
+    </a>
     <ng-template #logout>
-      <button  ><mat-icon aria-hidden="false"  fontIcon="logout"></mat-icon></button>
+      <button ><mat-icon aria-hidden="false"  fontIcon="logout"></mat-icon></button>
     </ng-template>
 
   </div>
   <button mat-button [matMenuTriggerFor]="beforeMenu">{{ "HEADER.THEME" | translate }}
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="sunny"></mat-icon>
   </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before">
     <button mat-menu-item>day
@@ -19,11 +21,11 @@
     <button mat-menu-item>night
       <mat-icon aria-hidden="false"  fontIcon="bedtime"></mat-icon></button>
   </mat-menu>
-  <button mat-button [matMenuTriggerFor]="afterMenu">Language
+  <button mat-button [matMenuTriggerFor]="afterMenu">{{ "HEADER.LANG" | translate }}
   </button>
   <mat-menu #afterMenu="matMenu" xPosition="after">
-    <button mat-menu-item (click)="switchLanguageEN()">EN</button>
-    <button mat-menu-item (click)="switchLanguageRU()">RU</button>
+    <button mat-menu-item (click)="switchLanguageEN()">en</button>
+    <button mat-menu-item (click)="switchLanguageRU()">ru</button>
   </mat-menu>
 </div>
 

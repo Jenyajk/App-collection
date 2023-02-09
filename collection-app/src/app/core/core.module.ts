@@ -8,6 +8,9 @@ import {LastAddedComponent} from "../components/last-added/last-added.component"
 import {SearchComponent} from "../components/search/search.component";
 import {AuthorizationComponent} from "../pages/authorization/authorization.component";
 import {TranslateModule} from "@ngx-translate/core";
+import {AdminPageComponent} from "../pages/admin-page/admin-page.component";
+import {RouterModule} from "@angular/router";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -19,6 +22,7 @@ import {TranslateModule} from "@ngx-translate/core";
     LastAddedComponent,
     SearchComponent,
     AuthorizationComponent,
+    AdminPageComponent
   ],
   exports: [
     MainComponent,
@@ -26,11 +30,14 @@ import {TranslateModule} from "@ngx-translate/core";
     LastAddedComponent,
     SearchComponent,
     AuthorizationComponent,
+    AdminPageComponent
   ],
-    imports: [
-        CommonModule,
-        UyModule,
-        TranslateModule,
-    ]
+  imports: [
+    CommonModule,
+    UyModule,
+    TranslateModule,
+    RouterModule,
+    ReactiveFormsModule,
+  ]
 })
 export class CoreModule { }

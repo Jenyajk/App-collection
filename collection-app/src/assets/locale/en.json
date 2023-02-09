@@ -1,5 +1,15 @@
 {
   "HEADER" : {
-    "THEME": "Theme"
+    "THEME": "Theme",
+    "LANG": "Language"
+  },
+  "AUTH": {
+    "REG": "Registration",
+    "LOGIN": "login",
+    "PASS": "password",
+    "IF": "Do you have an account? ",
+    "SUBMIT": "submit",
+    "SIGN": "sign in",
+    "ENTER": "Enter"
   }
 }
