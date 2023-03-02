@@ -3,13 +3,14 @@
 
   <app-search></app-search>
 <div class="wrap-navigate">
-  <div>login
-    <a routerLink="auth">
-      <button *ngIf="login else logout"><mat-icon aria-hidden="false"   fontIcon="login"></mat-icon>
+  <div >
+   {{username}}
+    <a *ngIf="login else logout" routerLink="auth">
+      <button ><mat-icon aria-hidden="false"   fontIcon="login"></mat-icon>
       </button>
     </a>
     <ng-template #logout>
-      <button ><mat-icon aria-hidden="false"  fontIcon="logout"></mat-icon></button>
+      <button (click)="logoutGo()" ><mat-icon aria-hidden="false"  fontIcon="logout"></mat-icon></button>
     </ng-template>
 
   </div>

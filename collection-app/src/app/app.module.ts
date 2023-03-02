@@ -30,6 +30,7 @@ import {HttpLoaderFactory, MissingTranslationService} from "./core/localization"
   ],
   exports: [
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

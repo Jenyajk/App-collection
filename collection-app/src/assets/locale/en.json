@@ -1,7 +1,8 @@
 {
   "HEADER" : {
     "THEME": "Theme",
-    "LANG": "Language"
+    "LANG": "Language",
+    "SEARCH": "Поиск"
   },
   "AUTH": {
     "REG": "Registration",

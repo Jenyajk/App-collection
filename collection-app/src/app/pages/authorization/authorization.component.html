@@ -15,25 +15,22 @@
       </div>
       <form [formGroup]="authorizationForm" class="auth-form">
         <label>{{"AUTH.LOGIN" | translate}}</label>
-        <input name="name" formControlName="userName">
+        <input name="name" formControlName="username">
         <div class="alert alert-danger"
-             *ngIf="authorizationForm.controls['userName'].invalid && authorizationForm.controls['userName'].touched">
-          Не указано имя
+             *ngIf="authorizationForm.controls['username'].invalid && authorizationForm.controls['username'].touched">
         </div>
         <label>e-mail</label>
-        <input name="email" formControlName="userEmail">
+        <input name="email" formControlName="email">
         <div class="alert alert-danger"
-             *ngIf="authorizationForm.controls['userEmail'].invalid && authorizationForm.controls['userEmail'].touched">
-          Некорректный email
+             *ngIf="authorizationForm.controls['email'].invalid && authorizationForm.controls['email'].touched">
         </div>
         <label>{{"AUTH.PASS" | translate}}</label>
         <input name="password" formControlName="password">
         <div class="alert alert-danger"
              *ngIf="authorizationForm.controls['password'].invalid && authorizationForm.controls['password'].touched">
-          Некорректный casc
         </div>
       </form>
-      <button [disabled]="authorizationForm.invalid"
+      <button (click)="authPost()" [disabled]="authorizationForm.invalid"
               class="button button-submit">{{"AUTH.SUBMIT" | translate}}</button>
     </div>
 
@@ -45,19 +42,17 @@
         </div>
         <form [formGroup]="authorizationForm" class="auth-form">
           <label>{{"AUTH.LOGIN" | translate}}</label>
-          <input name="name" formControlName="userName">
+          <input name="name" formControlName="username">
           <div class="alert alert-danger"
-               *ngIf="authorizationForm.controls['userName'].invalid && authorizationForm.controls['userName'].touched">
-            Не указано имя
+               *ngIf="authorizationForm.controls['username'].invalid && authorizationForm.controls['username'].touched">
           </div>
           <label>{{"AUTH.PASS" | translate}}</label>
           <input name="password" formControlName="password">
           <div class="alert alert-danger"
                *ngIf="authorizationForm.controls['password'].invalid && authorizationForm.controls['password'].touched">
-            Некорректный casc
           </div>
         </form>
-        <button [disabled]="authorizationForm.invalid"
+        <button (click)="enter()" authorizationForm.invalid
                 class="button button-submit">{{"AUTH.SUBMIT" | translate}}</button>
         <button class="button button-reg">
           <a (click)="signIn()">{{"AUTH.REG" | translate}}</a>

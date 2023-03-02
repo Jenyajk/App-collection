@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
+import {ApiService} from "../../core/api/api.service";
 
 
 
@@ -10,12 +11,16 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class HeaderComponent implements OnInit{
   login: boolean = true;
-  logout: any;
+  logout!: boolean;
   lang: string = 'en'
+  username: string | null = ''
 
   constructor(
-    private translateService: TranslateService
-  ) { }
+    private translateService: TranslateService,
+    private apiService: ApiService
+  ) {
+
+  }
 
 
  public switchLanguageEN() {
@@ -40,22 +45,19 @@ export class HeaderComponent implements OnInit{
     }
   }
 
-
+  logoutGo() {
+    localStorage.removeItem('username')
+    this.username = ''
+    this.login = true
+  }
 
   ngOnInit() {
     localStorage.setItem("lang", this.lang)
-    // let current_lang = localStorage.getItem('lang')
-    // if (!current_lang) {
-    //   localStorage.setItem("lang", this.lang)
-    // } else {
-    //   this.lang = current_lang
-    //  console.log('ddd')
-    // }
-    let current_login = localStorage.getItem('login')
-    if (!current_login) {
-      this.login = true
-    } else this.login = false
-
+    let name = localStorage.getItem('username')
+    if ( name!) {
+      this.username = name
+      this.login = false
+    }
   }
 
 }
