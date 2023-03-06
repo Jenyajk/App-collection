@@ -15,9 +15,6 @@ export class MainComponent  implements OnInit{
 
   ngOnInit(): void {
     let lang = localStorage.getItem("lang")
-
-    console.log(lang)
-
   }
 
 }

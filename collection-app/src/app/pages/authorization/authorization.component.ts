@@ -29,13 +29,13 @@ export class AuthorizationComponent {
 
   authPost() {
     const username  = this.authorizationForm.get("username")?.value
+
     const password =  this.authorizationForm.get("password")?.value
     const email = this.authorizationForm.get("email")?.value
     this.api.registrationUser(username, password ,email).subscribe( data =>{
       console.log(data)
       localStorage.setItem('username',this.authorizationForm.get('username')?.value)
     } )
-
    this.router.navigate([''])
   }
 
@@ -44,9 +44,8 @@ export class AuthorizationComponent {
     const password =  this.authorizationForm.get("password")?.value
 
     this.api.postUser(username , password).subscribe( data =>{
-      localStorage.setItem('token',data)
+      return data
       }
-
     )
     localStorage.setItem('username',this.authorizationForm.get('username')?.value)
      this.router.navigate([''])
